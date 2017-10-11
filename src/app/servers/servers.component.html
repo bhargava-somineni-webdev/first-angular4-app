@@ -1,0 +1,17 @@
+<label>Server Name</label>
+
+<!--Example of Event binding(reacting to user events) 
+    <input 
+    type="text" 
+    class="form-control"
+    (input)="onUpdateServerName($event)">  -->
+
+ <!-- Below is example of Two way binding using ngModel  -->   
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+<p>{{serverName}}</p>
+
+<button class="btn btn-primary" (click)="onCreateServer()" [disabled]="!allowNewServer">Add Server</button>
+<!-- <p [innerText]="allowNewServer"></p> Another eg of property binding -->
+<!-- <p *ngif="serverCreated">{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated">{{serverCreationStatus}}</p>
+<app-server *ngFor="let server of servers"></app-server>
